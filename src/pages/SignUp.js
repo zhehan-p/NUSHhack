@@ -4,11 +4,13 @@ import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState} from "react";
+
 function Signup () {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [cpassword, setCPassword] = useState(null);
     const [text, setText] = useState(null);
+    const [student, setStudent] = useState(0);
 
     return (
         <div class="bg">
@@ -16,15 +18,15 @@ function Signup () {
                 <div class="box">
                     <a class="close" href="../NUSHhack">X</a>
                     <h1><img src={icon} alt="Icon"/>Create Account</h1>
-                    <input type="text" class="input-field" placeholder="Username" required/>
-                    <input type="password" class="input-field" placeholder="Password" required/>
-                    <input type="password" class="input-field" placeholder="Confirm Password" required/>
+                    <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
+                    <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
+                    <input type="password" class="input-field" placeholder="Confirm Password" onChange={(e) => setCPassword(e.target.value)} required/>
                     <div class="radio-buttons">
-                        <input type="radio" id="student" name="role" value="student" required/>
+                        <input type="radio" id="student" name="role" value={1} onChange={(e) => setStudent(e.target.value)} required/>
                         <label for="student">Student</label>
                         
-                        <input className="radio-buttons-input" type="radio" id="teacher" name="role" value="teacher" required/>
-                        <label className="radio-buttons-label" htmlFor="teacher">Teacher</label>
+                        <input type="radio" id="teacher" name="role" value={2} onChange={(e) => setStudent(e.target.value)} required/>
+                        <label for="teacher">Teacher</label>
                     </div>
 
                     <a className="login-btn" onClick={()=>{
@@ -33,6 +35,24 @@ function Signup () {
                             setText("Email was taken");
                         }else if(password !== cpassword){
                             setText("Passwords do not match");
+                        } else{
+                            console.log(student);
+                            if (student == 1) {
+                                window.location.href="../Dashboard/Students";
+                                var studentUsers = students_list.users;
+                                studentUsers[email] = password;
+                                var jsonText = JSON.stringify({users: studentUsers});
+                                fs.writeFile('../data/students.json', jsonText, 'utf8', null);
+                            }
+                            else if (student == 2) {
+                                window.location.href="../Dashboard/Teachers";
+                                var teacherUsers = teacher_list.users;
+                                teacherUsers[email] = password;
+                                var jsonText = JSON.stringify({users: teacherUsers});
+                                fs.writeFile('../data/teachers.json', jsonText, 'utf8', null);
+                            } else if (student == 0) {
+                                setText("Please select if you are a student or teacher");
+                            }
                         }
 
                     }}>Create Account</a>
