@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import Login from './pages/Login.js';
 import Auth from './pages/auth.js';
+import StudentsDB from './pages/StudentsDB.js';
+import TeachersDB from './pages/TeachersDB.js';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
   {
     path: "/Auth",
     element: <Auth/>
+  },
+  {
+    path: "/Students/Dashboard",
+    element: <StudentsDB/>
+  },
+  {
+    path: "/Teachers/Dashboard",
+    element: <TeachersDB/>
   }
 ]);
 
