@@ -1,13 +1,11 @@
-.bg{
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    background-size: cover;
+.bg {
     background-image: url('../background.png');
+    background-size: cover;
+    font-family: Arial, sans-serif;
 }
 
 /* Centered container */
 .container {
-    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -36,7 +34,7 @@
     justify-content: center;
 }
 
-/* Icon next to Welcome text */
+/* Icon next to Create Account text */
 .box h1 img {
     width: 30px; /* Adjust size as needed */
     height: 30px;
@@ -53,25 +51,7 @@
     box-sizing: border-box; /* Ensures the padding doesn't overflow the container */
 }
 
-/* Login Button */
-.login-btn {
-    background-color: #76c7c0;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-/* Change color on hover */
-.login-btn:hover {
-    background-color: #5d9f9f;
-}
-
+/* Radio buttons container */
 .radio-buttons {
     display: flex;
     justify-content: space-between;
@@ -104,6 +84,29 @@
     background-color: #85e0e0;
 }
 
+/* Login box */
+.login-box {
+    margin-top: 10px;
+}
+
+/* Login Button */
+.create-btn {
+    background-color: #76c7c0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+/* Change color on hover */
+.create-btn:hover {
+    background-color: #5d9f9f;
+}
+
 /* Sign-up link */
 .signup-link {
     color: #fff;
@@ -114,7 +117,4 @@
 }
 .signup-link:hover {
     text-decoration: underline;
-}
-.err{
-    color: #FF4444;
 }
