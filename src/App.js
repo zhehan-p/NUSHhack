@@ -1,5 +1,4 @@
 import './App.css';
-import Titlebar from './Titlebar.js';
 import Login from './pages/Login.js';
 import {
   BrowserRouter as Router,
