@@ -1,5 +1,4 @@
 import './App.css';
-import './apikey'
 import Titlebar from './Titlebar.js';
 import Login from './pages/Login.js';
 import {
@@ -12,6 +11,7 @@ import bg from './background.png';
 import logo from './logo.png';
 
 import React,{useRef} from 'react';
+import { ReactDOM } from 'react-dom';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -21,8 +21,11 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+ 
+
 const firebaseConfig = {
-  apiKey: ,
+  apiKey: `${process.env.API_KEY}`,
   authDomain: "nushhack-bd3ba.firebaseapp.com",
   projectId: "nushhack-bd3ba",
   storageBucket: "nushhack-bd3ba.firebasestorage.app",
