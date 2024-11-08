@@ -2,6 +2,8 @@ import '../styles/Login.css';
 
 import React from 'react';
 
+import FetchJSON from '../FetchJSON';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -24,9 +26,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-var response = fetch('../data/schools.json').then((response) => response.json());
-var json = response.json();
-
 function Login() {
     return (
         <React.Fragment>
@@ -36,6 +35,7 @@ function Login() {
                     <h1>Welcome Back!</h1>
                     <select>
                         <option value="">Select School...</option>
+                        <FetchJSON/>
                     </select>
                 </div>
             </div>

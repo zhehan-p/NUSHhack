@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
+const response = await fetch("./data/schools.json");
+const json = await response.json();
+
 function FetchJSON() {
-    [json, setjson] = useState(0);
-
-    fetch("./data/schools.json").then((response) => response.json()).then((_json) => setjson(_json));
-
     return (
         <React.Fragment>
             {
