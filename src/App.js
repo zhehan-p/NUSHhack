@@ -1,5 +1,5 @@
 import './styles/App.css';
-import Login from './pages/Login.js';
+import Login from './pages/Course.js';
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,8 +33,8 @@ function App() {
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
                     <a onClick={()=>scrollToSection(about_us)} class="nav-button">About Us</a>
-                    <a href="/auth" class="nav-button">Log in as student</a>
-                    <a href="/auth" class="nav-button">Log in as teacher</a>
+                    <a href="/auth" class="nav-button">Sign Up</a>
+                    <a href="/auth" class="nav-button">Log in</a>
                     </div>
         </div>
       </div>

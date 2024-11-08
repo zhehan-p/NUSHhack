@@ -7,7 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from './pages/Login.js';
+import Login from './pages/Course.js';
 import Auth from './pages/auth.js';
 
 const router = createBrowserRouter([

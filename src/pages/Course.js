@@ -1,4 +1,4 @@
-import '../styles/Login.css';
+import '../styles/Course.css';
 
 import React from 'react';
 
