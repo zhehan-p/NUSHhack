@@ -3,7 +3,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     background-size: cover;
-    background-image: url('background.png');
+    background-image: url('../background.png');
 }
 
 /* Top navigation bar */
@@ -38,7 +38,7 @@
 }
 
 .nav-button {
-    background-color: #03a9f4; /* Blue-green button color */
+    background-color: #71abb8; /* Blue-green button color */
     color: #fff;
     border: none;
     border-radius: 5px;
