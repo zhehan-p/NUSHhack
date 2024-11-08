@@ -2,6 +2,7 @@ import './styles/App.css';
 import './styles/home.css';
 import bg from './background.png';
 import logo from './logo.png';
+import icon from './icon.png';
 
 import React,{useRef} from 'react';
 import { ReactDOM } from 'react-dom';
@@ -18,8 +19,8 @@ function App() {
   }
 
   return (
-    <React.Fragment>
       <div class="homepage">
+      <link rel="icon" href={icon} type="image/png" />
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/> 
       <div class="navbar">
         <div class="navbar-content">
@@ -48,7 +49,6 @@ function App() {
         </div>
       </div>
       </div>
-    </React.Fragment>
   );
 }
 
