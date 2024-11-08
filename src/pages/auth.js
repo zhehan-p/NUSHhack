@@ -8,6 +8,7 @@ import { browserHistory } from 'react-router';
 function Auth () {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [text, setText] = useState(null);
 
     return (
         <div class="bg">
@@ -20,20 +21,19 @@ function Auth () {
                     <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
                     <a class="login-btn" onClick={()=>{
-                        console.log(teacher_list.users);
-                        console.log(email);
-                        if (teacher_list.users[email]["password"] == password)
+                        if (teacher_list.users[email].password === password)
                         {
                             window.location.href="../Dashboard/Teachers";
                             console.log("teacher");
-                        }else if(students_list.users[email]["password"] == password){
+                        }else if(students_list.users[email].password === password){
                             window.location.href="../Dashboard/Students";
                             console.log("student");
                         }else{
-                            <text>Login Failed</text>
-                            console.log("l bozo");
+                            setText("Login failed");
                         }
                     }}>Login</a>
+
+                    <p class="err">{text}</p>
 
                     <a href="/Signup" class="signup-link">No account? Sign up</a>
                 </div>
