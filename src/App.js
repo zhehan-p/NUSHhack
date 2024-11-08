@@ -54,7 +54,7 @@ function App() {
       </div>
       
       <div class="fill-screen">
-        <div class="big-text">Welcome to Our Website!</div>
+        <div class="big-text">Welcome to Our Peer Sphere!</div>
       </div>
       <div id="about-us-anchor" class="about-us" >
         <div class="about-us-content">
