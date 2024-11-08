@@ -1,6 +1,17 @@
 import { useState } from 'react';
-import { auth, googleProvider } from '../config/firebase';
+import { auth, googleProvider } from 'config/firebase';
 import { signInWithPopup, signOut } from 'firebase/auth';
+import '../styles/auth.css'
+
+const firebaseConfig = {
+    apiKey: `${process.env.API_KEY}`,
+    authDomain: "nushhack-bd3ba.firebaseapp.com",
+    projectId: "nushhack-bd3ba",
+    storageBucket: "nushhack-bd3ba.firebasestorage.app",
+    messagingSenderId: "776117645348",
+    appId: "1:776117645348:web:9976df6f68e5e6b793a8b1",
+    measurementId: "G-KN9FMB51Q9"
+  };
 
 export const Auth = () => {
     const [email, setEmail] = useState("");
