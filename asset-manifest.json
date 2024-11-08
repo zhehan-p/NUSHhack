@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/NUSHhack/static/css/main.1e519429.css",
+    "main.js": "/NUSHhack/static/js/main.1e873a16.js",
+    "static/js/453.f3e377d6.chunk.js": "/NUSHhack/static/js/453.f3e377d6.chunk.js",
+    "static/media/logo.png": "/NUSHhack/static/media/logo.987928705fe63a92b332.png",
+    "static/media/icon.png": "/NUSHhack/static/media/icon.574f8881fa4ee3df6577.png",
+    "static/media/background.png": "/NUSHhack/static/media/background.b3386bcbebf3e2a048f8.png",
+    "index.html": "/NUSHhack/index.html",
+    "main.1e519429.css.map": "/NUSHhack/static/css/main.1e519429.css.map",
+    "main.1e873a16.js.map": "/NUSHhack/static/js/main.1e873a16.js.map",
+    "453.f3e377d6.chunk.js.map": "/NUSHhack/static/js/453.f3e377d6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e519429.css",
+    "static/js/main.1e873a16.js"
+  ]
+}
