@@ -39,8 +39,9 @@ function App() {
           <div class="logo"><img src="logo.png" alt="Logo"/></div>
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
-                    <a id="about-us-anchor" class="nav-button">About Us</a>
+                    <a id="about-us-anchor" class="nav-button"><button class="nav-button">About Us</button></a>
                     <button class="nav-button">Login</button>
+                    <button class="nav-button">Sign Up</button>
                     </div>
         </div>
       </div>
