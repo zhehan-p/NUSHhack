@@ -11,7 +11,7 @@ import Login from './pages/Login.js';
 
 const router = createBrowserRouter([
   {
-    path: "",
+    path: "/NUSHhack",
     element: <App />,
   },
   {
