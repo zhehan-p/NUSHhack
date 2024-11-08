@@ -18,19 +18,19 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/NUSHhack/Auth",
+    path: "/Auth",
     element: <Auth/>
   },
   {
-    path: "/NUSHhack/Signup",
+    path: "/Signup",
     element: <Signup/>
   },
   {
-    path: "/NUSHhack/Dashboard/Students",
+    path: "/Dashboard/Students",
     element: <StudentsDB/>
   },
   {
-    path: "/NUSHhack/Dashboard/Teachers",
+    path: "/Dashboard/Teachers",
     element: <TeachersDB/>
   }
 ]);
