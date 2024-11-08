@@ -11,26 +11,26 @@ function Signup () {
     const [text, setText] = useState(null);
 
     return (
-        <div class="bg">
-            <div class="container">
-                <div class="box">
+        <div className="bg">
+            <div className="container">
+                <div className="box">
                     <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
                     
-                    <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
+                    <input type="text" className="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
 
-                    <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
+                    <input type="password" className="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
-                    <input type="password" class="input-field" placeholder="Confirm Password" onChange={(e) => setCPassword(e.target.value)} required/>
+                    <input type="password" className="input-field" placeholder="Confirm Password" onChange={(e) => setCPassword(e.target.value)} required/>
 
-                    <div class="radio-buttons">
-                        <input type="radio" id="student" name="role" value="student" required/>
-                        <label for="student">Student</label>
+                    <div className="radio-buttons">
+                        <input className="radio-buttons-input" type="radio" id="student" name="role" value="student" required/>
+                        <label className="radio-buttons-label" htmlFor="student">Student</label>
                         
-                        <input type="radio" id="teacher" name="role" value="teacher" required/>
-                        <label for="teacher">Teacher</label>
+                        <input className="radio-buttons-input" type="radio" id="teacher" name="role" value="teacher" required/>
+                        <label className="radio-buttons-label" htmlFor="teacher">Teacher</label>
                     </div>
 
-                    <a class="login-btn" onClick={()=>{
+                    <a className="login-btn" onClick={()=>{
                         if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
                         {
                             setText("Email was taken");
@@ -40,9 +40,9 @@ function Signup () {
 
                     }}>Create Account</a>
 
-                    <p class="err">{text}</p>
+                    <p className="err">{text}</p>
 
-                    <a href="/Auth" class="signup-link">Have an account? Log in</a>
+                    <a href="/Auth" className="signup-link">Have an account? Log in</a>
                 </div>
             </div>
         </div>
