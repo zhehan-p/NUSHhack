@@ -1,6 +1,7 @@
 import '../styles/auth.css';
 import teacher_list from '../data/teachers.json';
 import students_list from '../data/students.json';
+import icon from '../icon.png';
 
 import {useState} from "react";
 
@@ -20,25 +21,19 @@ const Auth = () => {
     }
 
     return (
-        <div class="container">
-            <h2 class="header">Authentication</h2>
+        <div class="bg">
+            <div class="container">
+                <div class="box">
+                    <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
+                    
+                    <input type="text" class="input-field" placeholder="Username" required/>
 
-            <div class="inputContainer">
-                <input
-                    class="input"
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    class="input"
-                    placeholder="Password"
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
+                    <input type="password" class="input-field" placeholder="Password" required/>
 
-            <div class="buttonContainer">
-                <button class="button" onClick={signIn}>Sign In</button>
+                    <button class="login-btn">Login</button>
+
+                    <a href="/Signup" class="signup-link">No account? Sign up</a>
+                </div>
             </div>
         </div>
     );

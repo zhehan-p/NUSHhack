@@ -7,10 +7,10 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from './pages/Course.js';
 import Auth from './pages/auth.js';
 import StudentsDB from './pages/StudentsDB.js';
 import TeachersDB from './pages/TeachersDB.js';
+import Signup from './pages/SignUp.js';
 
 const router = createBrowserRouter([
   {
@@ -18,19 +18,19 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/Login",
-    element: <Login/>
-  },
-  {
     path: "/Auth",
     element: <Auth/>
   },
   {
-    path: "/Students/Dashboard",
+    path: "/Signup",
+    element: <Signup/>
+  },
+  {
+    path: "/Dashboard/Students",
     element: <StudentsDB/>
   },
   {
-    path: "/Teachers/Dashboard",
+    path: "/Dashboard/Teachers/Dashboard",
     element: <TeachersDB/>
   }
 ]);
