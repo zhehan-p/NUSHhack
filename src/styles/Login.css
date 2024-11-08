@@ -1,0 +1,63 @@
+/* Set image as background */
+.loginbody {
+background-image: url('../background.png');
+background-size: cover;
+font-family: Arial, sans-serif;
+}
+
+/* Centered container */
+.container {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+}
+
+/* Rounded square box */
+.box {
+background-color: #a6cfd3;
+padding: 20px;
+border: 1px solid #ddd;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+width: 300px;
+}
+
+/* Welcome text styles */
+.box h1 {
+color: #fff;
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+/* School selection dropdown */
+select {
+padding: 10px;
+border: 1px solid #ccc;
+background-color: #9ed3f4;
+border-radius: 5px;
+width: 100%;
+margin-bottom: 10px;
+}
+
+/* Login box */
+.login-box {
+margin-top: 10px;
+}
+
+/* Sign in with Google button */
+.google-btn {
+background-color: #3a99d3;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 100%;
+}
+
+.google-btn:hover {
+background-color: #3976c5;
+}
