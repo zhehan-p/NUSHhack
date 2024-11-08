@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Login from './pages/Login.js';
 import {
   BrowserRouter as Router,
@@ -45,7 +45,7 @@ function App() {
         <div class="about-us-content">
           <div class="about-us-text">
             <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            <p>PeerSphere is a collaborative learning platform designed to enhance knowledge sharing. Students can create and explore questions, while advanced analytics for teachers provide valuable insights to track progress and identify knowledge gaps. Our goal is to make learning interactive, personalized, and data-driven, empowering users to improve and grow together.</p>
           </div>
           <div class="about-us-image">
             <img src={bg} alt="Image"/>
