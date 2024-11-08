@@ -1,4 +1,5 @@
 import './App.css';
+import './apikey'
 import Titlebar from './Titlebar.js';
 import Login from './pages/Login.js';
 import {
@@ -21,7 +22,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC-3OpwKlCaQQqFoQtVz_CR_5mtYLn10H8",
+  apiKey: ,
   authDomain: "nushhack-bd3ba.firebaseapp.com",
   projectId: "nushhack-bd3ba",
   storageBucket: "nushhack-bd3ba.firebasestorage.app",
@@ -56,7 +57,6 @@ function App() {
           <div class="nav-buttons">
                     <a onClick={()=>scrollToSection(about_us)} class="nav-button">About Us</a>
                     <a href="/Login" class="nav-button">Log in</a>
-                    <button class="nav-button">Sign Up</button>
                     </div>
         </div>
       </div>
