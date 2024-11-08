@@ -1,6 +1,7 @@
 # PeerSphere
 
 PeerSphere is an innovative learning platform that empowers users to collaborate, create, and explore educational content. With advanced analytics, PeerSphere offers deeper insights into individual learning patterns, helping users identify knowledge gaps and track progress effectively. It's designed to make learning more interactive, personalized, and engaging.
+
 Head to https://zhehan-p.github.io/NUSHhack to get started.
 
 ## Features
