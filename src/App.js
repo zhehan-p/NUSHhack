@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import Titlebar from './Titlebar.js';
+import './home.css';
+import bg from './background.png';
+
+import React from 'react';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -34,12 +38,34 @@ function App() {
   document.title = "app";
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Titlebar/>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <React.Fragment>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/> 
+      <div class="navbar">
+        <div class="navbar-content">
+          <div class="logo"><img src="logo.png" alt="Logo"/></div>
+          <div style={{width: "200px"}}></div>
+          <div class="nav-buttons">
+                    <a id="about-us-anchor" class="nav-button">About Us</a>
+                    <button class="nav-button">Login</button>
+                    </div>
+        </div>
+      </div>
+      
+      <div class="fill-screen">
+        <div class="big-text">Welcome to Our Website!</div>
+      </div>
+      <div id="about-us-anchor" class="about-us" >
+        <div class="about-us-content">
+          <div class="about-us-text">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+          </div>
+          <div class="about-us-image">
+            <img src={bg} alt="Image"/>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
 
