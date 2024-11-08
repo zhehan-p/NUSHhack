@@ -1,7 +1,7 @@
 {
   "name": "nush-hack",
   "version": "0.1.0",
-  "homepage": "https://zhehan-p.github.io/NUSHhack/home",
+  "homepage": "https://zhehan-p.github.io/NUSHhack",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
