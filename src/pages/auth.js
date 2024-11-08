@@ -16,16 +16,16 @@ function Auth () {
                 <div class="box">
                     <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
                     
-                    <input type="text" class="input-field" placeholder="Username" required/>
+                    <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
 
-                    <input type="password" class="input-field" placeholder="Password" required/>
+                    <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
                     <a class="login-btn" onClick={()=>{
-                        if (teacher_list.users[email] === password)
+                        if (teacher_list.users[email].password === password)
                         {
                             window.location.href="../Dashboard/Teachers";
                             console.log("teacher");
-                        }else if(students_list.users[email]===password){
+                        }else if(students_list.users[email].password === password){
                             window.location.href="../Dashboard/Students";
                             console.log("student");
                         }else{
