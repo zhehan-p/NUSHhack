@@ -33,8 +33,8 @@ function App() {
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
                     <a onClick={()=>scrollToSection(about_us)} class="nav-button">About Us</a>
-                    <a href="/Login" class="nav-button">Log in as student</a>
-                    <a href="/Login" class="nav-button">Log in as teacher</a>
+                    <a href="/auth" class="nav-button">Log in as student</a>
+                    <a href="/auth" class="nav-button">Log in as teacher</a>
                     </div>
         </div>
       </div>

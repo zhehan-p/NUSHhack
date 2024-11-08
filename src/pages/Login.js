@@ -4,22 +4,6 @@ import React from 'react';
 
 import FetchJSON from '../FetchJSON';
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: `${process.env.API_KEY}`,
-  authDomain: "nushhack-bd3ba.firebaseapp.com",
-  projectId: "nushhack-bd3ba",
-  storageBucket: "nushhack-bd3ba.firebasestorage.app",
-  messagingSenderId: "776117645348",
-  appId: "1:776117645348:web:9976df6f68e5e6b793a8b1",
-  measurementId: "G-KN9FMB51Q9"
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 function Login() {
     return (
         <React.Fragment>
