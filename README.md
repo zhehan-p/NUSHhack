@@ -13,7 +13,7 @@ Head to https://zhehan-p.github.io/NUSHhack to get started.
 ## Usage
 
 ### Teachers
-1. **Sign Up**: Register as a teacher and create a school or join an existing school.
+1. **Sign Up**: Register as a teacher.
 2. **Create Courses**: From your dashboard, create courses and invite students using the course name and password.
 3. **Create & Rate Questions**: Add questions to your courses, and rate student-generated questions. Teacher-published questions are specially labeled.
 
