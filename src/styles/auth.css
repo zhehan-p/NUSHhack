@@ -53,11 +53,6 @@
     box-sizing: border-box; /* Ensures the padding doesn't overflow the container */
 }
 
-/* Login box */
-.login-box {
-    margin-top: 10px;
-}
-
 /* Login Button */
 .login-btn {
     background-color: #76c7c0;
@@ -65,9 +60,11 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    display: block;
     width: 100%;
     cursor: pointer;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Change color on hover */
@@ -85,4 +82,7 @@
 }
 .signup-link:hover {
     text-decoration: underline;
+}
+.err{
+    color: #FF4444;
 }
