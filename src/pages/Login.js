@@ -4,14 +4,9 @@ import React from 'react';
 
 import FetchJSON from '../FetchJSON';
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: `${process.env.API_KEY}`,
   authDomain: "nushhack-bd3ba.firebaseapp.com",
@@ -22,13 +17,26 @@ const firebaseConfig = {
   measurementId: "G-KN9FMB51Q9"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 function Login() {
     return (
         <React.Fragment>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "right",
+            }}>
+                <a href="../NUSHhack"><p style={{
+                    verticalAlign: "top",
+                    textAlign: "right",
+                    paddingRight: "50px",
+                    width: "50px",
+                    fontSize: 50,
+                    color: "#000000"
+                }}>x</p></a>
+            </div>
             <div class="loginbody"/>
             <div class="container">
                 <div class="box">
