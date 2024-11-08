@@ -42,14 +42,12 @@ function Signup () {
                                 var studentUsers = students_list.users;
                                 studentUsers[email] = password;
                                 var jsonText = JSON.stringify({users: studentUsers});
-                                fs.writeFile('../data/students.json', jsonText, 'utf8', null);
                             }
                             else if (student == 2) {
                                 window.location.href="../Dashboard/Teachers";
                                 var teacherUsers = teacher_list.users;
                                 teacherUsers[email] = password;
                                 var jsonText = JSON.stringify({users: teacherUsers});
-                                fs.writeFile('../data/teachers.json', jsonText, 'utf8', null);
                             } else if (student == 0) {
                                 setText("Please select if you are a student or teacher");
                             }
