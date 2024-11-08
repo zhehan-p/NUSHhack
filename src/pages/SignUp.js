@@ -3,7 +3,7 @@ import teacher_list from '../data/teachers.json';
 import students_list from '../data/students.json';
 import icon from '../icon.png';
 
-import {useState} from "react";
+import {useState,useEffect} from "react";
 
 function Signup () {
     const [email, setEmail] = useState(null);
@@ -12,11 +12,25 @@ function Signup () {
     const [text, setText] = useState(null);
     const [student, setStudent] = useState(0);
 
+    const [teacherData, setTeacherData] = useState("");
+    const [studentData, setStudentData] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8000/teacher")
+        .then((res) => res.json())
+        .then((data) => setTeacherData(data.message));
+    }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/student")
+        .then((res) => res.json())
+        .then((data) => setStudentData(data.message));
+    }, []);
+
     return (
         <div class="bg">
             <div class="container">
                 <div class="box">
-                    <a class="close" href="../NUSHhack">X</a>
+                    <a class="close" href="../NUSHhack">x</a>
                     <h1><img src={icon} alt="Icon"/>Create Account</h1>
                     <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
                     <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
