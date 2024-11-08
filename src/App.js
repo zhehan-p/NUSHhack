@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import Titlebar from './Titlebar.js';
+  import Titlebar from './Titlebar.js';
 import './home.css';
 import bg from './background.png';
+import logo from './logo.png';
 
 import React from 'react';
 
@@ -36,7 +36,7 @@ function App() {
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/> 
       <div class="navbar">
         <div class="navbar-content">
-          <div class="logo"><img src="logo.png" alt="Logo"/></div>
+          <div class="logo"><img src={logo} alt="Logo"/></div>
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
                     <a id="about-us-anchor" class="nav-button"><button class="nav-button">About Us</button></a>
