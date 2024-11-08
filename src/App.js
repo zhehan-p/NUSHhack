@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Titlebar from './Titlebar.js';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Titlebar/>
         <img src={logo} className="App-logo" alt="logo" />
         <div><button className='creds'>Log In</button></div>
       </header>
