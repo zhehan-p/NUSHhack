@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.creds {
+`  min-height: 40px;
+  min-width: 70px;
+}
