@@ -1,10 +1,4 @@
 import './styles/App.css';
-import Login from './pages/Login.js';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
 import './styles/home.css';
 import bg from './background.png';
 import logo from './logo.png';
@@ -34,8 +28,8 @@ function App() {
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
                     <a onClick={()=>scrollToSection(about_us)} class="nav-button">About Us</a>
-                    <a href="/auth" class="nav-button">Log in as student</a>
-                    <a href="/auth" class="nav-button">Log in as teacher</a>
+                    <a href="/Signup" class="nav-button">Sign Up</a>
+                    <a href="/Auth" class="nav-button">Log in</a>
                     </div>
         </div>
       </div>
