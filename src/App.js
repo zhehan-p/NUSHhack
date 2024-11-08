@@ -1,5 +1,11 @@
 import './App.css';
-  import Titlebar from './Titlebar.js';
+import Titlebar from './Titlebar.js';
+import Login from './pages/Login.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import './home.css';
 import bg from './background.png';
 import logo from './logo.png';
@@ -33,14 +39,15 @@ function App() {
 
   return (
     <React.Fragment>
+      <div class="homepage">
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/> 
       <div class="navbar">
         <div class="navbar-content">
           <div class="logo"><img src={logo} alt="Logo"/></div>
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
-                    <a id="about-us-anchor" class="nav-button"><button class="nav-button">About Us</button></a>
-                    <button class="nav-button">Login</button>
+                    <a id="about-us-anchor" class="nav-button">About Us</a>
+                    <a href="/Login" class="nav-button">Log in</a>
                     <button class="nav-button">Sign Up</button>
                     </div>
         </div>
@@ -59,6 +66,7 @@ function App() {
             <img src={bg} alt="Image"/>
           </div>
         </div>
+      </div>
       </div>
     </React.Fragment>
   );
