@@ -7,6 +7,7 @@ import {useState} from "react";
 function Signup () {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [cpassword, setCPassword] = useState(null);
     const [text, setText] = useState(null);
 
     return (
@@ -15,22 +16,29 @@ function Signup () {
                 <div class="box">
                     <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
                     
-                    <input type="text" class="input-field" placeholder="Username" required/>
+                    <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
 
-                    <input type="password" class="input-field" placeholder="Password" required/>
+                    <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
+
+                    <input type="password" class="input-field" placeholder="Confirm Password" onChange={(e) => setCPassword(e.target.value)} required/>
+
+                    <div class="radio-buttons">
+                        <input type="radio" id="student" name="role" value="student" required/>
+                        <label for="student">Student</label>
+                        
+                        <input type="radio" id="teacher" name="role" value="teacher" required/>
+                        <label for="teacher">Teacher</label>
+                    </div>
 
                     <a class="login-btn" onClick={()=>{
-                        if (teacher_list.users[email] === password)
+                        if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
                         {
-                            window.location.href="../Dashboard/Teachers";
-                            console.log("teacher");
-                        }else if(students_list.users[email]===password){
-                            window.location.href="../Dashboard/Students";
-                            console.log("student");
-                        }else{
-                            setText("Login failed");
+                            setText("Email was taken");
+                        }else if(password !== cpassword){
+                            setText("Passwords do not match");
                         }
-                    }}>Login</a>
+
+                    }}>Create Account</a>
 
                     <p class="err">{text}</p>
 
@@ -41,4 +49,4 @@ function Signup () {
     );
 };
 
-export default Auth;
+export default Signup;
