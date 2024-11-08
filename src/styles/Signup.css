@@ -59,12 +59,12 @@
 }
 
 /* Hide default radio button */
-.radio-buttons input[type="radio"] {
+.radio-buttons-input {
     display: none;
 }
 
 /* Styling for the labels acting as buttons */
-.radio-buttons label {
+.radio-buttons-label {
     background-color: #76c7c0;
     color: #fff;
     padding: 10px 20px;

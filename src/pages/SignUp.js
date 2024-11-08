@@ -23,11 +23,23 @@ function Signup () {
                         <input type="radio" id="student" name="role" value="student" required/>
                         <label for="student">Student</label>
                         
-                        <input type="radio" id="teacher" name="role" value="teacher" required/>
-                        <label for="teacher">Teacher</label>
+                        <input className="radio-buttons-input" type="radio" id="teacher" name="role" value="teacher" required/>
+                        <label className="radio-buttons-label" htmlFor="teacher">Teacher</label>
                     </div>
-                    <button class="create-btn">Create Account</button>
-                    <a href="/Auth" class="signup-link">Already have an account? Sign in</a>
+
+                    <a className="login-btn" onClick={()=>{
+                        if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
+                        {
+                            setText("Email was taken");
+                        }else if(password !== cpassword){
+                            setText("Passwords do not match");
+                        }
+
+                    }}>Create Account</a>
+
+                    <p className="err">{text}</p>
+
+                    <a href="/Auth" className="signup-link">Have an account? Log in</a>
                 </div>
             </div>
         </div>
