@@ -4,7 +4,7 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Auth from './pages/auth.js';
@@ -12,7 +12,7 @@ import StudentsDB from './pages/StudentsDB.js';
 import TeachersDB from './pages/TeachersDB.js';
 import Signup from './pages/SignUp.js';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/NUSHhack",
     element: <App />,
