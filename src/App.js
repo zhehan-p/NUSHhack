@@ -10,10 +10,19 @@ import './home.css';
 import bg from './background.png';
 import logo from './logo.png';
 
-import React from 'react';
+import React,{useRef} from 'react';
+import { ReactDOM } from 'react-dom';
 
 function App() {
   document.title = "app";
+  const about_us=useRef(null);
+
+  const scrollToSection = (elementRef)=>{
+      window.scrollTo({
+        top: elementRef.current.offsetTop,
+        behavior: 'smooth'
+      })
+  }
 
   return (
     <React.Fragment>
@@ -24,9 +33,8 @@ function App() {
           <div class="logo"><img src={logo} alt="Logo"/></div>
           <div style={{width: "200px"}}></div>
           <div class="nav-buttons">
-                    <a id="about-us-anchor" class="nav-button">About Us</a>
+                    <a onClick={()=>scrollToSection(about_us)} class="nav-button">About Us</a>
                     <a href="/Login" class="nav-button">Log in</a>
-                    <button class="nav-button">Sign Up</button>
                     </div>
         </div>
       </div>
@@ -34,7 +42,7 @@ function App() {
       <div class="fill-screen">
         <div class="big-text">Welcome to Our Peer Sphere!</div>
       </div>
-      <div id="about-us-anchor" class="about-us" >
+      <div ref={about_us} class="about-us" >
         <div class="about-us-content">
           <div class="about-us-text">
             <h2>About Us</h2>
