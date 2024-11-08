@@ -1,4 +1,4 @@
-import '../styles/auth.css';
+import '../styles/Signup.css';
 import teacher_list from '../data/teachers.json';
 import students_list from '../data/students.json';
 import icon from '../icon.png';
@@ -11,20 +11,16 @@ function Signup () {
     const [text, setText] = useState(null);
 
     return (
-        <div className="bg">
-            <div className="container">
-                <div className="box">
-                    <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
-                    
-                    <input type="text" className="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
-
-                    <input type="password" className="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
-
-                    <input type="password" className="input-field" placeholder="Confirm Password" onChange={(e) => setCPassword(e.target.value)} required/>
-
-                    <div className="radio-buttons">
-                        <input className="radio-buttons-input" type="radio" id="student" name="role" value="student" required/>
-                        <label className="radio-buttons-label" htmlFor="student">Student</label>
+        <div class="bg">
+            <div class="container">
+                <div class="box">
+                    <h1><img src={icon} alt="Icon"/>Create Account</h1>
+                    <input type="text" class="input-field" placeholder="Username" required/>
+                    <input type="password" class="input-field" placeholder="Password" required/>
+                    <input type="password" class="input-field" placeholder="Confirm Password" required/>
+                    <div class="radio-buttons">
+                        <input type="radio" id="student" name="role" value="student" required/>
+                        <label for="student">Student</label>
                         
                         <input className="radio-buttons-input" type="radio" id="teacher" name="role" value="teacher" required/>
                         <label className="radio-buttons-label" htmlFor="teacher">Teacher</label>
