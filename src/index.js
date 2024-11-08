@@ -4,7 +4,7 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Auth from './pages/auth.js';
@@ -12,25 +12,25 @@ import StudentsDB from './pages/StudentsDB.js';
 import TeachersDB from './pages/TeachersDB.js';
 import Signup from './pages/SignUp.js';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/NUSHhack",
     element: <App />,
   },
   {
-    path: "/Auth",
+    path: "/NUSHhack/Auth",
     element: <Auth/>
   },
   {
-    path: "/Signup",
+    path: "/NUSHhack/Signup",
     element: <Signup/>
   },
   {
-    path: "/Dashboard/Students",
+    path: "/NUSHhack/Dashboard/Students",
     element: <StudentsDB/>
   },
   {
-    path: "/Dashboard/Teachers",
+    path: "/NUSHhack/Dashboard/Teachers",
     element: <TeachersDB/>
   }
 ]);
