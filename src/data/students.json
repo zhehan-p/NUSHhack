@@ -1,8 +1,5 @@
 {
     "users": {
-        "aaa": {
-            "password": "pzh",
-            "name": "Peng Zhehan"
-        }
+        "aaa": "pzh"
     }
 }
