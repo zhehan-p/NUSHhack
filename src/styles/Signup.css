@@ -118,3 +118,10 @@
 .signup-link:hover {
     text-decoration: underline;
 }
+
+.close{
+    float: right;
+}
+.close:hover{
+    cursor: pointer;
+}

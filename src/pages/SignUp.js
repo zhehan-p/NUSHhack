@@ -14,6 +14,7 @@ function Signup () {
         <div class="bg">
             <div class="container">
                 <div class="box">
+                    <a class="close" href="../NUSHhack">X</a>
                     <h1><img src={icon} alt="Icon"/>Create Account</h1>
                     <input type="text" class="input-field" placeholder="Username" required/>
                     <input type="password" class="input-field" placeholder="Password" required/>

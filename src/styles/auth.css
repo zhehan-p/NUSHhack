@@ -86,3 +86,10 @@
 .err{
     color: #FF4444;
 }
+
+.close{
+    float: right;
+}
+.close:hover{
+    cursor: pointer;
+}

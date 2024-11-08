@@ -1,0 +1,267 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3AAFA9; /* Blue-green */
+    color: #e5fbf6;
+    overflow-x: hidden;
+}
+
+/* Updated Header Styling */
+header {
+    width: 100%;
+    background-color: #3a8987;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+header h2 {
+    margin: 0;
+}
+
+/* Profile and Logout Buttons */
+.header-buttons button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header-buttons button:hover {
+    background-color: #88D1C9;
+}
+
+/* Dashboard Container */
+.dashboard {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+.welcome-section h1 {
+    font-size: 36px;
+    color: #e5fbf6;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Courses Section */
+.courses-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.courses-section h3 {
+    font-size: 24px;
+    color: #e5fbf6;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+/* Add (+) Button */
+.add-course-button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-course-button:hover {
+    background-color: #88D1C9;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    outline: none;
+    color: #333;
+}
+
+.search-bar button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Course List */
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.course-list li {
+    background-color: #2B7A78;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e5fbf6;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Edit and Delete Buttons in Course List */
+.course-actions button {
+    background-color: #88D1C9;
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.course-actions button:hover {
+    background-color: #A0E0D8;
+}
+
+.modal{
+    background-color: #2B7A78;
+}
+
+/* Centered container */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Rounded square box */
+.box {
+    background-color: #a6cfd3;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Welcome text styles */
+.box h1 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon next to Create Account text */
+.box h1 img {
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Input fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures the padding doesn't overflow the container */
+}
+
+/* Radio buttons container */
+.radio-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Hide default radio button */
+.radio-buttons input[type="radio"] {
+    display: none;
+}
+
+/* Styling for the labels acting as buttons */
+.radio-buttons label {
+    background-color: #76c7c0;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    text-align: center;
+}
+
+/* Change background on hover */
+.radio-buttons label:hover {
+    background-color: #88d1c9;
+}
+
+/* Change background when selected */
+.radio-buttons input[type="radio"]:checked + label {
+    background-color: #85e0e0;
+}
+
+/* Login box */
+.login-box {
+    margin-top: 10px;
+}
+
+/* Login Button */
+.create-btn {
+    background-color: #76c7c0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+/* Change color on hover */
+.create-btn:hover {
+    background-color: #5d9f9f;
+}
+
+/* Sign-up link */
+.signup-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+.close{
+    float: right;
+}
+.close:hover{
+    cursor: pointer;
+}

@@ -14,6 +14,7 @@ function Auth () {
         <div class="bg">
             <div class="container">
                 <div class="box">
+                    <a class="close" href="../NUSHhack">X</a>
                     <h1><img src={icon} alt="Icon"/>Welcome Back!</h1>
                     
                     <input type="text" class="input-field" placeholder="Username" onChange={(e) => setEmail(e.target.value)} required/>
