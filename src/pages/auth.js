@@ -4,21 +4,10 @@ import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState} from "react";
-
-const Auth = () => {
-    const [email, setEmail] = useState(0);
-    const [password, setPassword] = useState(0);
-
-    const signIn = () => {
-        if (teacher_list.users[email] == password)
-        {
-            
-        }else if(students_list.users[email]==password){
-            
-        }else{
-            
-        }
-    }
+import { browserHistory } from 'react-router';
+function Auth () {
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
     return (
         <div class="bg">
@@ -30,7 +19,19 @@ const Auth = () => {
 
                     <input type="password" class="input-field" placeholder="Password" required/>
 
-                    <button class="login-btn">Login</button>
+                    <a class="login-btn" onClick={()=>{
+                        if (teacher_list.users[email] == password)
+                        {
+                            window.location.href="../Dashboard/Teachers";
+                            console.log("teacher");
+                        }else if(students_list.users[email]==password){
+                            window.location.href="../Dashboard/Students";
+                            console.log("student");
+                        }else{
+                            <text>Login Failed</text>
+                            console.log("l bozo");
+                        }
+                    }}>Login</a>
 
                     <a href="/Signup" class="signup-link">No account? Sign up</a>
                 </div>
