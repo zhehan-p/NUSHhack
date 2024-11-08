@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const response = await fetch("./data/schools.json");
-const json = await response.json();
+import data from './data/schools.json';
 
 function FetchJSON() {
     return (
         <React.Fragment>
             {
-                json.schools.map((user, index) => (
+                data.schools.map((user, index) => (
                     <option value="">{user}</option>
                 ))
             }
