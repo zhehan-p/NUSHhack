@@ -16,6 +16,6 @@ PeerSphere is an innovative learning platform that empowers users to collaborate
 3. **Create & Rate Questions**: Add questions to your courses, and rate student-generated questions. Teacher-published questions are specially labelled.
 
 ### Students
-1. **Sign Up**: Choose your school and create a student account.
+1. **Sign Up**: Register as a student.
 2. **Join Courses**: Use the course name and password provided by your teacher to join courses.
 3. **Create & Rate Questions**: From the course menu, students can create and rate questions.
