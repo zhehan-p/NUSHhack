@@ -16,12 +16,12 @@ function Signup () {
     const [studentData, setStudentData] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:8000/teacher")
+        fetch("http://localhost:8000/teachers")
         .then((res) => res.json())
         .then((data) => setTeacherData(data.message));
     }, []);
     useEffect(() => {
-        fetch("http://localhost:8000/student")
+        fetch("http://localhost:8000/students")
         .then((res) => res.json())
         .then((data) => setStudentData(data.message));
     }, []);
