@@ -15,6 +15,17 @@ function Signup () {
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
 
+    function handle(message, where) {
+        fetch(where, {
+            method: "POST", 
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: message
+        }).then(response => response.text())
+        .then((text) => {console.log(text)});
+    }
+
     useEffect(() => {
         fetch("http://localhost:8000/teachers")
         .then((res) => res.json())
@@ -43,45 +54,7 @@ function Signup () {
                         <label for="teacher">Teacher</label>
                     </div>
 
-                    <a className="login-btn" onClick={()=>{
-                        if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
-                        {
-                            setText("Email was taken");
-                        }else if(password !== cpassword){
-                            setText("Passwords do not match");
-                        } else{
-                            if (student == 1) {
-                                window.location.href="../Dashboard/Students";
-                                var studentUsers = students_list.users;
-                                studentUsers[email] = password;
-                                var jsonText = JSON.stringify({users: studentUsers});
-                            }
-                            else if (student == 2) {
-                                console.log(student)
-                                const addUser = ()=>{
-                                    const myData = {
-                                        email: email, password:password
-                                    }
-                                    console.log(1)
-                                    console.log(myData)
-                                    const result = fetch("http://localhost:8000/teachers",{method:"POST",
-                                        headers: {
-                                            'Content-Type':'application/json'
-                                        },
-                                        body: JSON.stringify(myData)
-                                    }).then(()=>{
-                                        const resultInJSON=result.json()
-                                        console.log(resultInJSON);
-                                    })
-                                    
-                                }
-                                //window.location.href="../Dashboard/Teachers";
-                            } else if (student == 0) {
-                                setText("Please select if you are a student or teacher");
-                            }
-                        }
-
-                    }}>Create Account</a>
+                    <a className="login-btn" onClick={handle}>Create Account</a>
 
                     <p className="err">{text}</p>
 

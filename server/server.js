@@ -1,5 +1,6 @@
 let teacherData = require("../src/data/teachers.json")
 let studentData = require("../src/data/students.json")
+const fs = require("fs");
 
 const express = require("express");
 const cors = require("cors");
@@ -17,7 +18,21 @@ app.get("/students", (req, res) => {
 });
 
 app.post('/students', (req, res) => {
-  
+  fs.writeFile('./src/data/students.json', JSON.stringify(req.body), (err) => {
+    if (err) throw err;
+    console.log('File written successfully');
+  });
+  res.send("successful");
+  studentData = req.body;
+});
+
+app.post('/teachers', (req, res) => {
+  fs.writeFile('./src/data/teachers.json', JSON.stringify(req.body), (err) => {
+    if (err) throw err;
+    console.log('File written successfully');
+  });
+  res.send("successful");
+  teacherData = req.body;
 });
 
 app.listen(8000, () => {
