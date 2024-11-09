@@ -33,7 +33,6 @@ export default function Course(){
                         <span>Question 3</span>
                         <button class="attempt-button" onclick="attemptQuestion(3)">Attempt</button>
                     </li>
-                    <!-- More questions can be added here -->
                             </ul>
             </div>
 
@@ -45,7 +44,6 @@ export default function Course(){
                     <p><strong>Total Questions:</strong> 10</p>
                     <p><strong>Attempts Made:</strong> 5</p>
                     <p><strong>Average Score:</strong> 80%</p>
-                    <!-- Additional statistics can be displayed here -->
                 </div>
             </div>
         </div>   
