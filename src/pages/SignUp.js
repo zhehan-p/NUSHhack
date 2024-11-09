@@ -1,19 +1,27 @@
 import '../styles/Signup.css';
-import teacher_list from '../data/teachers.json';
-import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState,useEffect} from "react";
 
 function Signup () {
-    const [email, setEmail] = useState("a");
-    const [password, setPassword] = useState("a");
-    const [cpassword, setCPassword] = useState("a");
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [cpassword, setCPassword] = useState(null);
     const [text, setText] = useState(null);
     const [student, setStudent] = useState(0);
 
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
+
+    function handle(event) {
+        event.preventDefault();
+        const fetchOptions = {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: `{email:${email}, password:${password}}`
+        };
+        fetch('http://localhost:8000/students', fetchOptions);
+    }
 
     function handle(message, where) {
         fetch(where, {
