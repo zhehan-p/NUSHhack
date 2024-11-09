@@ -1,62 +1,64 @@
 import '../styles/TDashboard.css'
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Popup from 'reactjs-popup';
 import icon from '../icon.png'
 import { useParams } from 'react-router-dom';
 
-function StudentsDB({username}){
-    function profile() {
-        alert("Profile button clicked");
-    }
-
-    function logout() {
-        alert("Logout button clicked");
-    }
-
-    function addCourse() {
-        alert("Add Course button clicked");
-    }
-
-    function editCourse(courseId) {
-        alert("Edit button clicked for Course " + courseId);
-    }
-
-    function deleteCourse(courseId) {
-        alert("Delete button clicked for Course " + courseId);
-    }
-
-    const [courses, setCourses] = useState([]);
+function StudentsDB(){
+    const [userData, setUserData] = useState(["",[]]);
     const [name, setName] = useState(null);
     const [passkey, setPasskey] = useState(null);
     const [CPasskey, setCPasskey] = useState(null);
     const [text, setText] = useState(null);
+    const [courseData,setCourseData] = useState([]);
+    var studentData = {users:{}};
+    function handle(message, where) {
+        fetch(where, {
+            method: "POST", 
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: message
+        }).then(response => response.text())
+        .then((text) => {console.log(text)});
+    }
+    useEffect(() => {
+        fetch("http://localhost:8000/courses")
+        .then((res) => res.json())
+        .then((data) => setCourseData(data));
+    }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/students")
+        .then((res) => res.json())
+        .then((data) => {setUserData(data.users[user]); studentData = data});
+    }, []);
 
-    const newCourse = (title)=>(
+    const newCourse = (title)=>{
+        var name = "";
+        for (var i = 0; i < courseData.course.length; i++)
+        {
+            if (courseData.course[i][0] === title)
+                name = courseData.course[i][1];
+        }
+
+        return (
         <li>
-            <span>{title}</span>
+            <span>{name}</span>
             <div class="course-actions">
                 <button onclick="editCourse(1)">Edit</button>
-                <button onClick={()=>{
-                    var a = courses;
-                    const index = a.indexOf(title);
-                    if (index > -1) {
-                        a.splice(index, 1);
-                    }
-                    setCourses([...a]);
-                }}>Delete</button>
             </div>
-        </li>
-    )
+        </li>);
+    }
 
     const {user} = useParams();
-
+    console.log(useParams());
     return (
         <React.Fragment>
         <header>
             <h2>Welcome, {user}</h2>
             <div class="header-buttons">
                 <button onclick="profile()">Profile</button>
-                <button onclick="logout()">Logout</button>
+                <button onClick={() => window.location.href="../../NUSHhack"}>Logout</button>
             </div>
         </header>
         <div class="dashboard">
@@ -75,20 +77,35 @@ function StudentsDB({username}){
                                     <div class="container">
                                         <div class="box">
                                             <p class="close" onClick={()=>close()}>x</p>
-                                            <h1><img src={icon} alt="Icon"/>Join Course</h1>
+                                            <h1><img src={icon} alt="Icon"/>Enter Course</h1>
                                             <input type="password" class="input-field" placeholder="Passkey" required onChange={(e)=>setPasskey(e.target.value)}/>
                                             <p class="err">{text}</p>
                                             <button class="create-btn" onClick={()=>{
-                                                if (courses.indexOf(name) > -1)
+                                                if (userData[1].indexOf(passkey) > -1)
                                                 {
-                                                    setText("Name is already taken");
+                                                    setText("Already registered for this course.");
                                                 }
                                                 else
                                                 {
-                                                    setCourses([...courses,name]);
-                                                    close();
+                                                    var exists = false;
+                                                    for (var i = 0; i < courseData.course.length; i++)
+                                                        if (courseData.course[i][0] === passkey)
+                                                            exists = true;
+                                                    if (!exists)
+                                                    {
+                                                        setText("Course does not exist!");
+                                                    }
+                                                    else
+                                                    {
+                                                        var a = userData[1];
+                                                        a.push(passkey);
+                                                        setUserData([userData[0], a]);
+                                                        studentData.users[user] = [userData[0], a];
+                                                        handle(JSON.stringify(studentData), "http://localhost:8000/students");
+                                                        close();
+                                                    }
                                                 }
-                                            }}>Create Course</button>
+                                            }}>Enter Course</button>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +120,7 @@ function StudentsDB({username}){
                 </div>
                 
                 <ul class="course-list">
-                    {courses.map((value, index) => (newCourse(value)))}
+                    {userData[1].map((pass,index) => newCourse(pass))}
                 </ul>
             </div>
         </div>

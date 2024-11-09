@@ -36,7 +36,7 @@ function Auth () {
                         {
                             window.location.href=`../Dashboard/Teachers/${email}`;
                             console.log("teacher");
-                        }else if(students_list.users[email].password === password){
+                        }else if(studentData.users[email][0] === password){
                             window.location.href=`../Dashboard/Students/${email}`;
                             console.log("student");
                         }else{

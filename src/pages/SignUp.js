@@ -62,7 +62,7 @@ function Signup () {
                             if (student == 1) {
                                 window.location.href=`../Dashboard/Students/${email}`;
                                 var studentUsers = studentData.users;
-                                studentUsers[email] = password;
+                                studentUsers[email] = [password, []];
                                 var jsonText = JSON.stringify({users: studentUsers});
                                 handle(jsonText, "http://localhost:8000/students");
                             }

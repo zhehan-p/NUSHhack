@@ -42,6 +42,15 @@ app.post('/teachers', (req, res) => {
   teacherData = req.body;
 });
 
+app.post('/courses', (req, res) => {
+    fs.writeFile('./src/data/courses.json', JSON.stringify(req.body), (err) => {
+      if (err) throw err;
+      console.log('File written successfully');
+    });
+    res.send("successful");
+    courseData = req.body;
+  });
+
 app.listen(8000, () => {
   console.log(`Server is running on port 8000.`);
 });
