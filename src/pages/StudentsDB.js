@@ -10,7 +10,7 @@ function StudentsDB(){
     const [passkey, setPasskey] = useState(null);
     const [CPasskey, setCPasskey] = useState(null);
     const [text, setText] = useState(null);
-    const [courseData,setCourseData] = useState([]);
+    const [courseData,setCourseData] = useState({course: []});
     var studentData = {users:{}};
     function handle(message, where) {
         fetch(where, {
@@ -45,7 +45,7 @@ function StudentsDB(){
         <li>
             <span>{name}</span>
             <div class="course-actions">
-                <button onclick="editCourse(1)">Edit</button>
+                <button onClick={()=>window.location.href=`../../QuestionList/${name}`}>Attempt</button>
             </div>
         </li>);
     }
@@ -57,7 +57,12 @@ function StudentsDB(){
         <header>
             <h2>Welcome, {user}</h2>
             <div class="header-buttons">
-                <button onclick="profile()">Profile</button>
+                <button onClick={() => {
+                    window.location.href="../../NUSHhack";
+                    var a = studentData.users;
+                    delete a[user];
+                    handle(JSON.stringify({users: a}), "http://localhost:8000/students");
+                }}>Delete Account</button>
                 <button onClick={() => window.location.href="../../NUSHhack"}>Logout</button>
             </div>
         </header>

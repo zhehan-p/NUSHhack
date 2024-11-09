@@ -1,6 +1,12 @@
-import {useState,useEffect} from "react";
+import { useParams } from "react-router-dom"
+import React, {useState} from "react";
+import '../styles/Course.css'
 
 export default function Course(){
+    const {name} = useParams();
+
+    const [questions, setQuestions] = useState(["first", "second", "last"]);
+
     return (
         <React.Fragment>
         <header>
@@ -23,19 +29,13 @@ export default function Course(){
                 </div>
 
                 <ul class="questions-list">
-                    <li>
-                        <span>Question 1</span>
-                        <button class="attempt-button" onclick="attemptQuestion(1)">Attempt</button>
-                    </li>
-                    <li>
-                        <span>Question 2</span>
-                        <button class="attempt-button" onclick="attemptQuestion(2)">Attempt</button>
-                    </li>
-                    <li>
-                        <span>Question 3</span>
-                        <button class="attempt-button" onclick="attemptQuestion(3)">Attempt</button>
-                    </li>
-                            </ul>
+                    {questions.map((value, index) => (
+                        <li>
+                            <span>Question {index+1}: {value}</span>
+                            <button class="attempt-button" onClick={() => window.location.href=`./${name}/question/${index}`}>Attempt</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             <div class="statistics-section">

@@ -12,6 +12,8 @@ function TeachersDB({username}){
     const [CPasskey, setCPasskey] = useState(null);
     const [text, setText] = useState(null);
     const [courseData,setCourseData] = useState({course: []});
+    const [studentData, setStudentData] = useState({users: {}});
+    const [teacherData, setTeacherData] = useState({users: {}});
     function handle(message, where) {
         fetch(where, {
             method: "POST", 
@@ -28,6 +30,16 @@ function TeachersDB({username}){
         .then((data) => {setCourseData(data); return data})
         .then((data) => setCourses([...data.course]));
     }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/students")
+        .then((res) => res.json())
+        .then((data) => setStudentData(data))
+    }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/teachers")
+        .then((res) => res.json())
+        .then((data) => setTeacherData(data))
+    }, []);
 
     const newCourse = (title)=>{
         var name = "";
@@ -41,7 +53,7 @@ function TeachersDB({username}){
         <li>
             <span>{name}</span>
             <div class="course-actions">
-                <button onclick="editCourse(1)">Edit</button>
+                <button onClick={()=>window.location.href=`../../QuestionList/${name}`}>Edit</button>
                 <button onClick={()=>{
                     var a = courses;
                     var index = -1;
@@ -56,6 +68,17 @@ function TeachersDB({username}){
                     setCourses([...a]);
                     setCourseData({course: [...a]});
                     handle(JSON.stringify({course: [...a]}), "http://localhost:8000/courses");
+                    var pdd = studentData.users;
+                    for (var user in pdd)
+                    {
+                        for (var i = 0; i < pdd[user][1].length; i++)
+                        {
+                            if (pdd[user][1][i] === title)
+                                pdd[user][1].splice(i, 1);
+                        }
+                    }
+                    setStudentData({users: pdd});
+                    handle(JSON.stringify({users: pdd}), "http://localhost:8000/students");
                 }}>Delete</button>
             </div>
         </li>);
@@ -67,7 +90,12 @@ function TeachersDB({username}){
         <header>
             <h2>Welcome, {user}</h2>
             <div class="header-buttons">
-                <button onclick="profile()">Profile</button>
+                <button onClick={() => {
+                    window.location.href="../../NUSHhack";
+                    var a = teacherData.users;
+                    delete a[user];
+                    handle(JSON.stringify({users: a}), "http://localhost:8000/teachers");
+                }}>Delete Account</button>
                 <button onClick={() => window.location.href="../../NUSHhack"}>Logout</button>
             </div>
         </header>

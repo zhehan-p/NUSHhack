@@ -32,15 +32,22 @@ function Auth () {
                     <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
                     <a class="login-btn" onClick={()=>{
-                        if (teacherData.users[email] === password)
+                        if (!teacherData.users.hasOwnProperty(email)&&!studentData.users.hasOwnProperty(email))
                         {
-                            window.location.href=`../Dashboard/Teachers/${email}`;
-                            console.log("teacher");
-                        }else if(studentData.users[email][0] === password){
-                            window.location.href=`../Dashboard/Students/${email}`;
-                            console.log("student");
-                        }else{
-                            setText("Login failed");
+                            setText("Account does not exist!")
+                        }
+                        else
+                        {
+                            if (teacherData.users[email] === password)
+                            {
+                                window.location.href=`../Dashboard/Teachers/${email}`;
+                                console.log("teacher");
+                            }else if(studentData.users[email][0] === password){
+                                window.location.href=`../Dashboard/Students/${email}`;
+                                console.log("student");
+                            }else{
+                                setText("Login failed");
+                            }
                         }
                     }}>Login</a>
 

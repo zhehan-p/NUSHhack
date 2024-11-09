@@ -12,6 +12,8 @@ import Auth from './pages/auth.js';
 import StudentsDB from './pages/StudentsDB.js';
 import TeachersDB from './pages/TeachersDB.js';
 import Signup from './pages/SignUp.js';
+import Course from './pages/Course.js';
+import Question from './pages/Question.js';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: "/Dashboard/Teachers/:user",
     element: <TeachersDB/>
+  },
+  {
+    path: "/QuestionList/:name",
+    element: <Course/>
+  },
+  {
+    path: "/QuestionList/:name/question/:id",
+    element: <Question/>
   }
 ]);
 

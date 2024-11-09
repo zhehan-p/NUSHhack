@@ -1,0 +1,133 @@
+/* General Font and Background */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3AAFA9; /* Blue-green */
+    color: #e5fbf6;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: #3a8987;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-name {
+    font-size: 24px;
+    color: #e5fbf6;
+    margin: 0;
+}
+
+.header-buttons button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.header-buttons button:hover {
+    background-color: #88D1C9;
+}
+
+/* Main Content Layout */
+.content-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Question Section */
+.question-section {
+    flex: 2;
+    background-color: #e5fbf6;
+    color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+    font-size: 20px;
+    color: #2B7A78;
+    margin: 0;
+}
+
+.question-description {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.explanation-section {
+    margin-top: 20px;
+    background-color: #e5fbf6;
+    color: #333333;
+    padding: 15px;
+    border-radius: 5px;
+    width: 30%; /* Narrower than the question section */
+    display: block;
+}
+
+.explanation-header {
+    display: flex;
+    justify-content: space-between; /* Ensures that the heading and button are spaced apart */
+    align-items: center; /* Vertically aligns them in the center */
+}
+
+.toggle-button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-button:hover {
+    background-color: #88D1C9;
+}
+
+/* Answer Options */
+.answers-section {
+    margin-top: 20px;
+}
+
+.mcq-options input {
+    margin-right: 10px;
+}
+
+/* Submit Button */
+.submit-button {
+    margin-top: 20px;
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: #88D1C9;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Ensures the padding doesn't overflow the container */
+}
