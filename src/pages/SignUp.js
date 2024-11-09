@@ -1,6 +1,4 @@
 import '../styles/Signup.css';
-import teacher_list from '../data/teachers.json';
-import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState,useEffect} from "react";
@@ -15,15 +13,25 @@ function Signup () {
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
 
+    function handle(event) {
+        event.preventDefault();
+        const fetchOptions = {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: `{email:${email}, password:${password}}`
+        };
+        fetch('http://localhost:8000/students', fetchOptions);
+    }
+
     useEffect(() => {
-        fetch("http://localhost:8000/teacher")
+        fetch("http://localhost:8000/teachers")
         .then((res) => res.json())
-        .then((data) => setTeacherData(data.message));
+        .then((data) => setTeacherData(data));
     }, []);
     useEffect(() => {
-        fetch("http://localhost:8000/student")
+        fetch("http://localhost:8000/students")
         .then((res) => res.json())
-        .then((data) => setStudentData(data.message));
+        .then((data) => setStudentData(data));
     }, []);
 
     return (
@@ -43,31 +51,7 @@ function Signup () {
                         <label for="teacher">Teacher</label>
                     </div>
 
-                    <a className="login-btn" onClick={()=>{
-                        if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
-                        {
-                            setText("Email was taken");
-                        }else if(password !== cpassword){
-                            setText("Passwords do not match");
-                        } else{
-                            console.log(student);
-                            if (student == 1) {
-                                window.location.href="../Dashboard/Students";
-                                var studentUsers = students_list.users;
-                                studentUsers[email] = password;
-                                var jsonText = JSON.stringify({users: studentUsers});
-                            }
-                            else if (student == 2) {
-                                window.location.href="../Dashboard/Teachers";
-                                var teacherUsers = teacher_list.users;
-                                teacherUsers[email] = password;
-                                var jsonText = JSON.stringify({users: teacherUsers});
-                            } else if (student == 0) {
-                                setText("Please select if you are a student or teacher");
-                            }
-                        }
-
-                    }}>Create Account</a>
+                    <a className="login-btn" onClick={handle}>Create Account</a>
 
                     <p className="err">{text}</p>
 

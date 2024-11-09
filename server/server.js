@@ -14,7 +14,12 @@ app.get("/teachers", (req, res) => {
 
 app.get("/students", (req, res) => {
     res.json(studentData);
-  });
+});
+
+app.get('/students', (req, res) => {
+  console.error("a");
+  res.send("a");
+});
 
 app.listen(8000, () => {
   console.log(`Server is running on port 8000.`);
