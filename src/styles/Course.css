@@ -1,0 +1,142 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3AAFA9; /* Blue-green */
+    color: #e5fbf6;
+    overflow-x: hidden;
+}
+
+/* Header with Profile Button */
+header {
+    width: 100%;
+    background-color: #3a8987;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.course-name {
+    font-size: 24px;
+    color: #e5fbf6;
+    margin: 0;
+}
+
+.profile-button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+.profile-button:hover {
+    background-color: #88D1C9;
+}
+
+/* Main Content Layout */
+.content-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; /* Aligns content to the top independently */
+}
+
+/* Questions Section */
+.questions-section {
+    flex: 2;
+    background-color: #e5fbf6;
+    color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.questions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.questions-header h2 {
+    font-size: 20px;
+    color: #2B7A78;
+    margin: 0;
+}
+
+/* Profile and Logout Buttons */
+.header-buttons button {
+    background-color: #76C7C0; /* Lighter blue-green */
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header-buttons button:hover {
+    background-color: #88D1C9; /* Hover */
+}
+
+.questions-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.questions-list li {
+    background-color: #d3e9e4;
+    color: #333333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attempt-button {
+    background-color: #76C7C0;
+    color: #e5fbf6;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.attempt-button:hover {
+    background-color: #88D1C9;
+}
+
+/* Statistics Section */
+.statistics-section {
+    flex: 1;
+    background-color: #e5fbf6;
+    color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* Allows independent height */
+    align-self: flex-start; /* Aligns statistics box to the top */
+}
+
+.statistics-header h3 {
+    font-size: 20px;
+    color: #2B7A78;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.statistics-details p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}

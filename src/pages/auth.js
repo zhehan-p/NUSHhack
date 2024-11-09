@@ -22,11 +22,11 @@ function Auth () {
                     <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
                     <a class="login-btn" onClick={()=>{
-                        if (teacher_list.users[email] === password)
+                        if (teacher_list.users[email].password === password)
                         {
                             window.location.href="../Dashboard/Teachers";
                             console.log("teacher");
-                        }else if(students_list.users[email] === password){
+                        }else if(students_list.users[email].password === password){
                             window.location.href="../Dashboard/Students";
                             console.log("student");
                         }else{

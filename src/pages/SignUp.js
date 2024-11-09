@@ -1,14 +1,12 @@
 import '../styles/Signup.css';
-import teacher_list from '../data/teachers.json';
-import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState,useEffect} from "react";
 
 function Signup () {
-    const [email, setEmail] = useState("a");
-    const [password, setPassword] = useState("a");
-    const [cpassword, setCPassword] = useState("a");
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [cpassword, setCPassword] = useState(null);
     const [text, setText] = useState(null);
     const [student, setStudent] = useState(0);
 
@@ -54,7 +52,32 @@ function Signup () {
                         <label for="teacher">Teacher</label>
                     </div>
 
-                    <a className="login-btn" onClick={handle}>Create Account</a>
+                    <a className="login-btn" onClick={()=>{
+                        if (teacherData.users.hasOwnProperty(email)||studentData.users.hasOwnProperty(email))
+                        {
+                            setText("Email was taken");
+                        }else if(password !== cpassword){
+                            setText("Passwords do not match");
+                        } else{
+                            if (student == 1) {
+                                window.location.href="../Dashboard/Students";
+                                var studentUsers = studentData.users;
+                                studentUsers[email] = password;
+                                var jsonText = JSON.stringify({users: studentUsers});
+                                handle(jsonText, "http://localhost:8000/students");
+                            }
+                            else if (student == 2) {
+                                window.location.href="../Dashboard/Teachers";
+                                var teacherUsers = teacherData.users;
+                                teacherUsers[email] = password;
+                                var jsonText = JSON.stringify({users: teacherUsers});
+                                handle(jsonText, "http://localhost:8000/students");
+                            } else if (student == 0) {
+                                setText("Please select if you are a student or teacher");
+                            }
+                        }
+
+                    }}>Create Account</a>
 
                     <p className="err">{text}</p>
 
