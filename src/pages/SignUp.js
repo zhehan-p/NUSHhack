@@ -13,19 +13,13 @@ function Signup () {
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
 
-    function handle(event) {
-        event.preventDefault();
-        const fetchOptions = {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({email:email, password:password})
-        };
-        fetch("http://localhost:8000/students", {
+    function handle(message, where) {
+        fetch(where, {
             method: "POST", 
             headers: {
                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email:email, password:password})
+            body: message
         }).then(response => response.text())
         .then((text) => {console.log(text)});
     }
@@ -58,7 +52,31 @@ function Signup () {
                         <label for="teacher">Teacher</label>
                     </div>
 
-                    <a className="login-btn" onClick={handle}>Create Account</a>
+                    <a className="login-btn" onClick={() => {
+                        if (teacherData.users.hasOwnProperty(email)||studentData.users.hasOwnProperty(email))
+                        {
+                            setText("Email was taken");
+                        }else if(password !== cpassword){
+                            setText("Passwords do not match");
+                        } else{
+                            if (student == 1) {
+                                window.location.href="../Dashboard/Students";
+                                var studentUsers = studentData.users;
+                                studentUsers[email] = password;
+                                var jsonText = JSON.stringify({users: studentUsers});
+                                handle(jsonText, "http://localhost:8000/students");
+                            }
+                            else if (student == 2) {
+                                window.location.href="../Dashboard/Teachers";
+                                var teacherUsers = teacherData.users;
+                                teacherUsers[email] = password;
+                                var jsonText = JSON.stringify({users: teacherUsers});
+                                handle(jsonText, "http://localhost:8000/teachers");
+                            } else if (student == 0) {
+                                setText("Please select if you are a student or teacher");
+                            }
+                        }
+                    }}>Create Account</a>
 
                     <p className="err">{text}</p>
 
