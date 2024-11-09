@@ -71,7 +71,7 @@ function Signup () {
                                 var teacherUsers = teacherData.users;
                                 teacherUsers[email] = password;
                                 var jsonText = JSON.stringify({users: teacherUsers});
-                                handle(jsonText, "http://localhost:8000/students");
+                                handle(jsonText, "http://localhost:8000/teachers");
                             } else if (student == 0) {
                                 setText("Please select if you are a student or teacher");
                             }
