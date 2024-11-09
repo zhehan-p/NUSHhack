@@ -54,11 +54,7 @@ function TeachersDB({username}){
     return (
         <React.Fragment>
         <header>
-<<<<<<< HEAD
-            <h2>Welcome, {username}</h2>
-=======
             <h2>Welcome, {user}</h2>
->>>>>>> 9ec2cdada93be08f3e51b06c63bae528c8b418fd
             <div class="header-buttons">
                 <button onclick="profile()">Profile</button>
                 <button onclick="logout()">Logout</button>
