@@ -34,10 +34,15 @@ function Auth () {
                     <a class="login-btn" onClick={()=>{
                         if (teacherData.users[email] === password)
                         {
-                            window.location.href="../Dashboard/Teachers";
+                            window.location.href=`../Dashboard/Teachers/${email}`;
                             console.log("teacher");
+<<<<<<< HEAD
                         }else if(studentData.users[email] === password){
                             window.location.href="../Dashboard/Students";
+=======
+                        }else if(students_list.users[email].password === password){
+                            window.location.href=`../Dashboard/Students/${email}`;
+>>>>>>> 9ec2cdada93be08f3e51b06c63bae528c8b418fd
                             console.log("student");
                         }else{
                             setText("Login failed");
