@@ -17,6 +17,8 @@ app.get("/students", (req, res) => {
     res.json(studentData);
 });
 
+
+
 app.post('/students', (req, res) => {
   fs.writeFile('./src/data/students.json', JSON.stringify(req.body), (err) => {
     if (err) throw err;
