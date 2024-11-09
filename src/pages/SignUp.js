@@ -18,9 +18,16 @@ function Signup () {
         const fetchOptions = {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: `{email:${email}, password:${password}}`
+            body: JSON.stringify({email:email, password:password})
         };
-        fetch('http://localhost:8000/students', fetchOptions);
+        fetch("http://localhost:8000/students", {
+            method: "POST", 
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email:email, password:password})
+        }).then(response => response.text())
+        .then((text) => {console.log(text)});
     }
 
     useEffect(() => {
