@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
+  useParams,
 } from "react-router-dom";
 import Auth from './pages/auth.js';
 import StudentsDB from './pages/StudentsDB.js';
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
     element: <Signup/>
   },
   {
-    path: "/Dashboard/Students",
+    path: "/Dashboard/Students/:user",
     element: <StudentsDB/>
   },
   {
-    path: "/Dashboard/Teachers",
+    path: "/Dashboard/Teachers/:user",
     element: <TeachersDB/>
   }
 ]);

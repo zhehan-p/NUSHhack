@@ -2,6 +2,7 @@ import '../styles/TDashboard.css'
 import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
 import icon from '../icon.png'
+import { useParams } from 'react-router-dom';
 
 function TeachersDB(){
     function profile() {
@@ -47,10 +48,12 @@ function TeachersDB(){
         </li>
     )
 
+    const {user} = useParams();
+    console.log(useParams());
     return (
         <React.Fragment>
         <header>
-            <h2>Welcome, [Name]</h2>
+            <h2>Welcome, {user}</h2>
             <div class="header-buttons">
                 <button onclick="profile()">Profile</button>
                 <button onclick="logout()">Logout</button>

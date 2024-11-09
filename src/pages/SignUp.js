@@ -60,14 +60,14 @@ function Signup () {
                             setText("Passwords do not match");
                         } else{
                             if (student == 1) {
-                                window.location.href="../Dashboard/Students";
+                                window.location.href=`../Dashboard/Students/${email}`;
                                 var studentUsers = studentData.users;
                                 studentUsers[email] = password;
                                 var jsonText = JSON.stringify({users: studentUsers});
                                 handle(jsonText, "http://localhost:8000/students");
                             }
                             else if (student == 2) {
-                                window.location.href="../Dashboard/Teachers";
+                                window.location.href=`../Dashboard/Teachers/${email}`;
                                 var teacherUsers = teacherData.users;
                                 teacherUsers[email] = password;
                                 var jsonText = JSON.stringify({users: teacherUsers});
