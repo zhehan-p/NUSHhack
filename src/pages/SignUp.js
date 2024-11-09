@@ -1,27 +1,19 @@
 import '../styles/Signup.css';
+import teacher_list from '../data/teachers.json';
+import students_list from '../data/students.json';
 import icon from '../icon.png';
 
 import {useState,useEffect} from "react";
 
 function Signup () {
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [cpassword, setCPassword] = useState(null);
+    const [email, setEmail] = useState("a");
+    const [password, setPassword] = useState("a");
+    const [cpassword, setCPassword] = useState("a");
     const [text, setText] = useState(null);
     const [student, setStudent] = useState(0);
 
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
-
-    function handle(event) {
-        event.preventDefault();
-        const fetchOptions = {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: `{email:${email}, password:${password}}`
-        };
-        fetch('http://localhost:8000/students', fetchOptions);
-    }
 
     useEffect(() => {
         fetch("http://localhost:8000/teachers")
@@ -51,7 +43,45 @@ function Signup () {
                         <label for="teacher">Teacher</label>
                     </div>
 
-                    <a className="login-btn" onClick={handle}>Create Account</a>
+                    <a className="login-btn" onClick={()=>{
+                        if (teacher_list.users.hasOwnProperty(email)||students_list.users.hasOwnProperty(email))
+                        {
+                            setText("Email was taken");
+                        }else if(password !== cpassword){
+                            setText("Passwords do not match");
+                        } else{
+                            if (student == 1) {
+                                window.location.href="../Dashboard/Students";
+                                var studentUsers = students_list.users;
+                                studentUsers[email] = password;
+                                var jsonText = JSON.stringify({users: studentUsers});
+                            }
+                            else if (student == 2) {
+                                console.log(student)
+                                const addUser = ()=>{
+                                    const myData = {
+                                        email: email, password:password
+                                    }
+                                    console.log(1)
+                                    console.log(myData)
+                                    const result = fetch("http://localhost:8000/teachers",{method:"POST",
+                                        headers: {
+                                            'Content-Type':'application/json'
+                                        },
+                                        body: JSON.stringify(myData)
+                                    }).then(()=>{
+                                        const resultInJSON=result.json()
+                                        console.log(resultInJSON);
+                                    })
+                                    
+                                }
+                                //window.location.href="../Dashboard/Teachers";
+                            } else if (student == 0) {
+                                setText("Please select if you are a student or teacher");
+                            }
+                        }
+
+                    }}>Create Account</a>
 
                     <p className="err">{text}</p>
 

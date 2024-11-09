@@ -16,9 +16,8 @@ app.get("/students", (req, res) => {
     res.json(studentData);
 });
 
-app.get('/students', (req, res) => {
-  console.error("a");
-  res.send("a");
+app.post('/students', (req, res) => {
+  
 });
 
 app.listen(8000, () => {
