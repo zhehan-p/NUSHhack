@@ -13,16 +13,6 @@ function Signup () {
     const [teacherData, setTeacherData] = useState("");
     const [studentData, setStudentData] = useState("");
 
-    function handle(event) {
-        event.preventDefault();
-        const fetchOptions = {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: `{email:${email}, password:${password}}`
-        };
-        fetch('http://localhost:8000/students', fetchOptions);
-    }
-
     function handle(message, where) {
         fetch(where, {
             method: "POST", 
