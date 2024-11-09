@@ -1,14 +1,24 @@
 import '../styles/auth.css';
-import teacher_list from '../data/teachers.json';
-import students_list from '../data/students.json';
 import icon from '../icon.png';
+import { useEffect,useState } from 'react';
 
-import {useState} from "react";
-import { browserHistory } from 'react-router';
 function Auth () {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [text, setText] = useState(null);
+    const [teacherData, setTeacherData] = useState("");
+    const [studentData, setStudentData] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8000/teachers")
+        .then((res) => res.json())
+        .then((data) => setTeacherData(data));
+    }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/students")
+        .then((res) => res.json())
+        .then((data) => setStudentData(data));
+    }, []);
 
     return (
         <div class="bg">
@@ -22,11 +32,11 @@ function Auth () {
                     <input type="password" class="input-field" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
 
                     <a class="login-btn" onClick={()=>{
-                        if (teacher_list.users[email].password === password)
+                        if (teacherData.users[email] === password)
                         {
                             window.location.href="../Dashboard/Teachers";
                             console.log("teacher");
-                        }else if(students_list.users[email].password === password){
+                        }else if(studentData.users[email] === password){
                             window.location.href="../Dashboard/Students";
                             console.log("student");
                         }else{

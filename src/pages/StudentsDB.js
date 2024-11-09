@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
 import icon from '../icon.png'
 
-function StudentsDB(){
+function StudentsDB({username}){
     function profile() {
         alert("Profile button clicked");
     }
@@ -50,7 +50,7 @@ function StudentsDB(){
     return (
         <React.Fragment>
         <header>
-            <h2>Welcome, [Name]</h2>
+            <h2>Welcome, {username}</h2>
             <div class="header-buttons">
                 <button onclick="profile()">Profile</button>
                 <button onclick="logout()">Logout</button>
@@ -72,10 +72,8 @@ function StudentsDB(){
                                     <div class="container">
                                         <div class="box">
                                             <p class="close" onClick={()=>close()}>x</p>
-                                            <h1><img src={icon} alt="Icon"/>Create Course</h1>
-                                            <input type="text" class="input-field" placeholder="Name" required onChange={(e)=>setName(e.target.value)}/>
+                                            <h1><img src={icon} alt="Icon"/>Join Course</h1>
                                             <input type="password" class="input-field" placeholder="Passkey" required onChange={(e)=>setPasskey(e.target.value)}/>
-                                            <input type="password" class="input-field" placeholder="Confirm Passkey" required onChange={(e)=>setCPasskey(e.target.value)}/>
                                             <p class="err">{text}</p>
                                             <button class="create-btn" onClick={()=>{
                                                 if (courses.indexOf(name) > -1)

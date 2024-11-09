@@ -1,38 +1,39 @@
 import '../styles/TDashboard.css'
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Popup from 'reactjs-popup';
 import icon from '../icon.png'
 
-function TeachersDB(){
-    function profile() {
-        alert("Profile button clicked");
-    }
-
-    function logout() {
-        alert("Logout button clicked");
-    }
-
-    function addCourse() {
-        alert("Add Course button clicked");
-    }
-
-    function editCourse(courseId) {
-        alert("Edit button clicked for Course " + courseId);
-    }
-
-    function deleteCourse(courseId) {
-        alert("Delete button clicked for Course " + courseId);
-    }
+function TeachersDB({username}){
 
     const [courses, setCourses] = useState([]);
     const [name, setName] = useState(null);
     const [passkey, setPasskey] = useState(null);
     const [CPasskey, setCPasskey] = useState(null);
     const [text, setText] = useState(null);
+    const [courseData,setCourseData] = useState("")
+    function handle(message, where) {
+        fetch(where, {
+            method: "POST", 
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: message
+        }).then(response => response.text())
+        .then((text) => {console.log(text)});
+    }
+    useEffect(() => {
+        fetch("http://localhost:8000/courses")
+        .then((res) => res.json())
+        .then((data) => setCourseData(data));
+    }, []);
+
+    var key2name={
+        
+    }
 
     const newCourse = (title)=>(
         <li>
-            <span>{title}</span>
+            <span>{key2name[title]}</span>
             <div class="course-actions">
                 <button onclick="editCourse(1)">Edit</button>
                 <button onClick={()=>{
@@ -50,7 +51,7 @@ function TeachersDB(){
     return (
         <React.Fragment>
         <header>
-            <h2>Welcome, [Name]</h2>
+            <h2>Welcome, {username}</h2>
             <div class="header-buttons">
                 <button onclick="profile()">Profile</button>
                 <button onclick="logout()">Logout</button>
@@ -84,7 +85,12 @@ function TeachersDB(){
                                                 }
                                                 else
                                                 {
-                                                    setCourses([...courses,name]);
+                                                    key2name[passkey]=name;
+                                                    var course = courseData.users;
+                                                    course[passkey] = name;
+                                                    var jsonText = JSON.stringify({users: course});
+                                                    handle(jsonText, "http://localhost:8000/courses");
+                                                    setCourses([...courses,passkey]);
                                                     close();
                                                 }
                                             }}>Create Course</button>
@@ -102,7 +108,7 @@ function TeachersDB(){
                 </div>
                 
                 <ul class="course-list">
-                    {courses.map((value, index) => (newCourse(value)))}
+                    {courses.map((value, index) => (newCourse(key2name[value])))}
                 </ul>
             </div>
         </div>

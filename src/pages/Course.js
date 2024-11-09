@@ -1,3 +1,5 @@
+import {useState,useEffect} from "react";
+
 export default function Course(){
     return (
         <React.Fragment>

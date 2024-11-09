@@ -1,5 +1,6 @@
 let teacherData = require("../src/data/teachers.json")
 let studentData = require("../src/data/students.json")
+let courseData = require("../src/data/courses.json")
 const fs = require("fs");
 
 const express = require("express");
@@ -16,6 +17,10 @@ app.get("/teachers", (req, res) => {
 app.get("/students", (req, res) => {
     res.json(studentData);
 });
+
+app.get("/courses",(req,res)=>{
+    res.json(courseData)
+})
 
 
 
